@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        5%{?dist}
+Release:        6%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -23,7 +23,7 @@ xmkmf
 
 
 %build
-make %{?_smp_mflags} CDEBUGFLAGS="$RPM_OPT_FLAGS" CC=%{__cc}
+make %{?_smp_mflags} CDEBUGFLAGS="$RPM_OPT_FLAGS" CC="%{__cc}"
 
 
 %install
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Mon Oct 06 2008 Ian Weller <ianweller@gmail.com> 2.2-6
+- Fix build section from FTFBS (bug 464962)
+
 * Mon Mar 17 2008 Thomas Woerner <twoerner@redhat.com> 2.2-5
 - honor XScreenSaver disabled state
 
