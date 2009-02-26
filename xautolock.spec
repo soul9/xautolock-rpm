@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        6%{?dist}
+Release:        7%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -43,6 +43,9 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Wed Feb 25 2009 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2-7
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_11_Mass_Rebuild
+
 * Mon Oct 06 2008 Ian Weller <ianweller@gmail.com> 2.2-6
 - Fix build section from FTFBS (bug 464962)
 
