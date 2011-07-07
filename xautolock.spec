@@ -8,13 +8,14 @@ License:        GPLv2
 URL:            http://freshmeat.net/projects/xautolock/
 Source0:        http://www.ibiblio.org/pub/Linux/X11/screensavers/%{name}-%{version}.tgz
 Patch0:         xautolock-2.2-XSS-fix.patch
-BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
-BuildRequires:  imake libXScrnSaver-devel
+BuildRequires:  imake
+BuildRequires:  libXScrnSaver-devel
 
 %description
 A program that launches a given program when
 your X session has been idle for a given time.
+
 
 %prep
 %setup -q
@@ -23,16 +24,11 @@ xmkmf
 
 
 %build
-make %{?_smp_mflags} CDEBUGFLAGS="$RPM_OPT_FLAGS" CC="%{__cc}"
+make %{?_smp_mflags} CDEBUGFLAGS="%{optflags}" CC="%{__cc}"
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
-make install install.man DESTDIR=$RPM_BUILD_ROOT INSTALL="install -p"
-
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %files
