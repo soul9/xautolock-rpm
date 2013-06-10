@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        12%{?dist}
+Release:        13%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -8,6 +8,9 @@ License:        GPLv2
 URL:            http://freshmeat.net/projects/xautolock/
 Source0:        http://www.ibiblio.org/pub/Linux/X11/screensavers/%{name}-%{version}.tgz
 Patch0:         xautolock-2.2-XSS-fix.patch
+
+# See RHBZ#956271. Local change; worth upstreaming?
+Patch100:       xautolock-longer-times.patch
 
 BuildRequires:  imake
 BuildRequires:  libXScrnSaver-devel
@@ -20,6 +23,7 @@ your X session has been idle for a given time.
 %prep
 %setup -q
 %patch0 -p1 -b .XSS-fix
+%patch0 -p1 -b .longer-times
 xmkmf
 
 
@@ -39,6 +43,9 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %changelog
+* Sun Jun 09 2013 Ben Boeckel <mathstuf@gmail.com> - 2.2-13
+- Make maximum lock and kill times 24 hours (RHBZ#956271).
+
 * Fri Feb 15 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2-12
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_19_Mass_Rebuild
 
