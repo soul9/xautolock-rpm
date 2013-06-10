@@ -23,7 +23,7 @@ your X session has been idle for a given time.
 %prep
 %setup -q
 %patch0 -p1 -b .XSS-fix
-%patch0 -p1 -b .longer-times
+%patch100 -p1 -b .longer-times
 xmkmf
 
 
