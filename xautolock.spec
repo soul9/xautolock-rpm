@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        13%{?dist}
+Release:        14%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -43,6 +43,9 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %changelog
+* Sun Aug 04 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2-14
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
+
 * Sun Jun 09 2013 Ben Boeckel <mathstuf@gmail.com> - 2.2-13
 - Make maximum lock and kill times 24 hours (RHBZ#956271).
 
