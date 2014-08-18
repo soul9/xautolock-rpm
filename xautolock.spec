@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        15%{?dist}
+Release:        16%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -43,6 +43,9 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %changelog
+* Mon Aug 18 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2-16
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_22_Mass_Rebuild
+
 * Sun Jun 08 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 2.2-15
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
 
