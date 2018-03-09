@@ -8,6 +8,13 @@ License:        GPLv2
 URL:            http://freshmeat.net/projects/xautolock/
 Source0:        http://www.ibiblio.org/pub/Linux/X11/screensavers/%{name}-%{version}.tgz
 Patch0:         xautolock-2.2-XSS-fix.patch
+# All of Debian's patches look pretty sane, so let's swipe 'em
+# All by Roland Stigge, except 14 by Aurelien Jarno
+Patch1:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/10-fix-memory-corruption.patch
+Patch2:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/11-fix-no-dpms.patch
+Patch3:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/12-fix-manpage.patch
+Patch4:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/13-fix-hppa-build.patch
+Patch5:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/14-do-not-use-union-wait-type.patch
 
 # See RHBZ#956271. Local change; worth upstreaming?
 Patch100:       xautolock-longer-times.patch
@@ -21,9 +28,7 @@ your X session has been idle for a given time.
 
 
 %prep
-%setup -q
-%patch0 -p1 -b .XSS-fix
-%patch100 -p1 -b .longer-times
+%autosetup -p1
 xmkmf
 
 
@@ -46,6 +51,7 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 * Wed Mar 07 2018 Adam Williamson <awilliam@redhat.com> - 2.2-23
 - Rebuild to fix GCC 8 mis-compilation
   See https://da.gd/YJVwk ("GCC 8 ABI change on x86_64")
+- Swipe all of Debian's patches - fix a build fail and other bugs
 
 * Fri Feb 09 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.2-22
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_28_Mass_Rebuild
