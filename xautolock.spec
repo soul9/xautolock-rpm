@@ -41,7 +41,6 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %files
-%defattr(-,root,root,-)
 %doc Changelog License Readme Todo
 %{_bindir}/xautolock
 %{_mandir}/man1/xautolock.1*
