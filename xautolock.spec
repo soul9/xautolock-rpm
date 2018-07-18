@@ -19,6 +19,7 @@ Patch5:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debia
 # See RHBZ#956271. Local change; worth upstreaming?
 Patch100:       xautolock-longer-times.patch
 
+BuildRequires:  gcc
 BuildRequires:  imake
 BuildRequires:  libXScrnSaver-devel
 
