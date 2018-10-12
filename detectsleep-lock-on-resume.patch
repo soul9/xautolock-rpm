@@ -1,0 +1,16 @@
+diff --git a/src/xautolock.c b/src/xautolock.c
+index 47d3947..448fff7 100644
+--- a/src/xautolock.c
++++ b/src/xautolock.c
+@@ -162,7 +162,10 @@ main (int argc, char* argv[])
+     if (detectSleep)
+     {
+       t1 = time (NULL);
+-      if ((unsigned long) t1 - (unsigned long) t0 > 3) resetLockTrigger ();
++      if ((unsigned long) t1 - (unsigned long) t0 > 3) {
++        lockNow = True;
++        evaluateTriggers (d);
++      }
+       t0 = t1;
+     }
+   }

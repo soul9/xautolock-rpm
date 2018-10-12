@@ -1,6 +1,6 @@
 Name:           xautolock
 Version:        2.2
-Release:        24%{?dist}
+Release:        25%{?dist}
 Summary:        Launches a program when your X session has been idle
 
 Group:          User Interface/X
@@ -15,6 +15,7 @@ Patch2:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debia
 Patch3:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/12-fix-manpage.patch
 Patch4:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/13-fix-hppa-build.patch
 Patch5:         https://sources.debian.org/data/main/x/xautolock/1:2.2-5.1/debian/patches/14-do-not-use-union-wait-type.patch
+Patch6:         detectsleep-lock-on-resume.patch
 
 # See RHBZ#956271. Local change; worth upstreaming?
 Patch100:       xautolock-longer-times.patch
@@ -48,6 +49,9 @@ make install install.man DESTDIR=%{buildroot} INSTALL="install -p"
 
 
 %changelog
+* Fri Oct 12 2018 J S <j@roxor.me> - 2.2-25
+- if detectsleep is enabled, lock the screen on resume
+
 * Sat Jul 14 2018 Fedora Release Engineering <releng@fedoraproject.org> - 2.2-24
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_29_Mass_Rebuild
 
