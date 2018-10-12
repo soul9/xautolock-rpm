@@ -22,7 +22,7 @@ rpm_clean_targets := $(foreach a,$(arches),$(patsubst %,%-$a-clean,$(distros)))
 
 MOCK_DISTGZ := $(distgz)
 ifndef distgz
-	MOCK_DISTGZ := xautolock-*.tar.gz
+	MOCK_DISTGZ := xautolock-*.tgz
 endif
 
 .PHONY: fetch
